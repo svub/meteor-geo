@@ -1,0 +1,44 @@
+<template name="geoLocationSelector">
+  <div class="geo-location-selector">
+    <p>
+      Select your country and city (optional)
+      <select name="country">
+        {{#each groupedCountries }}
+        <optgroup label="{{ label }}">
+          {{> geoLocationSelectorOptions values }}
+        </optgroup>
+        {{/each }}
+      </select>
+      <select name="city">
+        {{> geoLocationSelectorOption value='' label='No particular city' }}
+        {{#each groupedCities }}
+        <optgroup label="{{ label }}">
+          {{> geoLocationSelectorOptions values }}
+        </optgroup>
+        {{/each }}
+      </select>
+    </p>
+    <p>
+      Wanna go even further?
+      <select class="distance">
+        <option value="0">just within</option>
+        <option value="1000">+ 1km</option>
+        <option value="5000">+ 5km</option>
+        <option value="10000" selected>+ 10km</option>
+        <option value="20000">+ 20km</option>
+        <option value="50000">+ 50km</option>
+        <option value="100000">+ 100km</option>
+      </select>
+    </p>
+  </div>
+</template>
+
+<template name="geoLocationSelectorOptions">
+  {{#each this }}
+  {{> geoLocationSelectorOption }}
+  {{/each }}
+</template>
+
+<template name="geoLocationSelectorOption">
+  <option value="{{ value }}">{{ label }}</option>
+</template>

@@ -1,0 +1,13 @@
+{
+    "name": "Voting",
+    "description": "rovides open source only geocoding, reverse geocoding and UI widgets based on Open Street Maps, Geonames, and Leaflet.",
+    "homepage": "https://github.com/svub/geo",
+    "author": "Sven Buschbeck",
+    "version": "0.1.0",
+    "git": "https://github.com/svub/geo.git",
+    "packages": {
+        "tools": {
+            "path": "../tools"
+        }
+    }
+}

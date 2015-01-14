@@ -1,0 +1,37 @@
+<template name="geoArea">
+  <div class="geo-area">
+    <ul class="nav nav-pills" role="tablist">
+      <li role="presentation" class="active"><a href="#anywhere" aria-controls="anywhere" role="tab" data-toggle="pill">Anywhere</a></li>
+      <li role="presentation"><a href="#aroundme" aria-controls="aroundme" role="tab" data-toggle="pill">Around me</a></li>
+      <li role="presentation"><a href="#area" aria-controls="area" role="tab" data-toggle="pill">Select area</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="anywhere">Get inspired, see what's going on in the whole wide world!</div>
+      <div role="tabpanel" class="tab-pane aroundme" id="aroundme">
+        <p>
+          {{#if myLocation }}
+            Your current location is:<br/>
+            <button class="current-location" style="float:right"><i></i>update</button>
+            <small>{{ myLocation }}</small>
+          {{ else }}
+            <button class="current-location"><i></i>Get my current location</button><br/>
+          {{/if }}
+        </p>
+        <p>
+          How far would you go?
+          <select class="distance">
+            <option value="1000">1km</option>
+            <option value="5000">5km</option>
+            <option value="10000" selected>10km</option>
+            <option value="20000">20km</option>
+            <option value="100000">100km</option>
+          </select>
+        </p>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="area">
+        {{> geoLocationSelector }}
+      </div>
+    </div>
+  </div>
+</template>
